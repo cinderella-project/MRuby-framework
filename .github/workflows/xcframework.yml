@@ -11,7 +11,8 @@ jobs:
           - 11.4
     steps:
     - uses: actions/checkout@v2
-      submodules: true
+      with:
+        submodules: true
     - name: Select Xcode
       run: sudo xcode-select --switch /Applications/Xcode_${{ matrix.xcode }}.app
     - name: Build MRuby
