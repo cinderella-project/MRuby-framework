@@ -7,3 +7,4 @@ xcodebuild -create-xcframework \
     -library submodules/mruby/build/ios/lib/libmruby.a -headers submodules/mruby/include \
     -library submodules/mruby/build/ios_sim/lib/libmruby.a -headers submodules/mruby/include \
     -output ./CMRuby.xcframework
+cp submodules/mruby/build/host/LEGAL ./CMRuby.xcframework/

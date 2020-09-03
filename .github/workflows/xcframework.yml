@@ -1,0 +1,23 @@
+name: Build XCFramework
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    strategy:
+      matrix:
+        xcode:
+          - 11.4
+    steps:
+    - uses: actions/checkout@v1
+    - name: Select Xcode
+      run: sudo xcode-select --switch /Applications/Xcode_${{ matrix.xcode }}.app
+    - name: Build MRuby
+      run: ./build.sh
+    - name: Make XCFramework
+      run: ./make-xcframework.sh
+    - uses: actions/upload-artifact@v2
+      with:
+        name: CMRuby.xcframework
+        path: CMRuby.xcframework
