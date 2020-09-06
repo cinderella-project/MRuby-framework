@@ -7,7 +7,7 @@ do
     mkdir -p frameworks/$target/CMRuby.framework/{Headers,Modules}
     cp -r submodules/mruby/include/ frameworks/$target/CMRuby.framework/Headers
     cp module.modulemap frameworks/$target/CMRuby.framework/Modules
-    cp submodules/mruby/build/$target/bin/mruby.dylib frameworks/$target/CMRuby.framework/CMRuby
+    cp submodules/mruby/build/$target/lib/libmruby.a frameworks/$target/CMRuby.framework/CMRuby
     pushd frameworks/$target/CMRuby.framework/Headers
     find ./mruby -type f | xargs sed -Ei '' 's/# *include [<"]mruby\/(.+)[">]/#include "\1"/g'
     find ./mruby -type f | xargs sed -Ei '' 's/# *include <(mruby\.h)>/#include "..\/\1"/g'
