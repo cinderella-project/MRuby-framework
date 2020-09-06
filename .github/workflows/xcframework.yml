@@ -48,8 +48,6 @@ jobs:
         repository: cinderella-project/PodsSpecs
         path: 'PodsSpecs'
     - run: mkdir -p ~/.cocoapods/repos && ln -s $(pwd)/PodsSpecs ~/.cocoapods/repos/cinderella
-    - name: Upload to PodsSpecs
-      run: pod repo push cinderella libmruby.podspec
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -69,3 +67,5 @@ jobs:
         asset_path: ./libmruby.xcframework.zip
         asset_name: libmruby.xcframework.zip
         asset_content_type: application/zip
+    - name: Upload to PodsSpecs
+      run: pod repo push cinderella libmruby.podspec
