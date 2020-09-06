@@ -22,13 +22,13 @@ jobs:
     - name: Select Xcode
       run: sudo xcode-select --switch /Applications/Xcode_${{ matrix.xcode }}.app
     - name: Build MRuby
-      run: cd libmruby && ./build.sh
+      run: ./build.sh
     - name: Make XCFramework
-      run: cd libmruby && ./make-xcframework.sh
+      run: ./make-xcframework.sh
     - uses: actions/upload-artifact@v2
       with:
         name: libmruby.xcframework
-        path: libmruby/libmruby.xcframework
+        path: libmruby.xcframework
   release:
     runs-on: macOS-latest
     needs: build
