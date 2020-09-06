@@ -34,6 +34,7 @@ jobs:
     needs: build
     if: contains(github.ref, 'tags/')
     steps:
+    - uses: actions/checkout@v2
     - uses: actions/download-artifact@v2
       with:
         name: libmruby.xcframework
