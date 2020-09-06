@@ -1,6 +1,12 @@
 name: Build XCFramework
 
-on: [push]
+on:
+  push:
+    branches:
+    - master
+    tags:
+    - "*"
+  pull_request:
 
 jobs:
   build:
@@ -23,3 +29,10 @@ jobs:
       with:
         name: libmruby.xcframework
         path: libmruby/libmruby.xcframework
+  release:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: libmruby.xcframework
+    - run: ls
