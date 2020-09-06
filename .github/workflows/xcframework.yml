@@ -46,7 +46,7 @@ jobs:
       with:
         ssh-key: ${{ secrets.PODUPDATER_SSH_PRIVATE_KEY }}
         repository: cinderella-project/PodsSpecs
-        path: '~/.cocoapods/repos/cinderella'
+        path: '${{ env.HOME }}/.cocoapods/repos/cinderella'
     - name: Upload to PodsSpecs
       run: pod repo push cinderella libmruby.podspec
     - name: Create Release
