@@ -1,0 +1,5 @@
+framework module libmruby [system] {
+    umbrella header "mruby-all.h"
+    export *
+    link framework "libmruby"
+}

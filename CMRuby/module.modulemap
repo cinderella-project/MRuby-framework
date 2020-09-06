@@ -1,5 +1,0 @@
-framework module CMRuby [system] {
-    umbrella header "mruby-all.h"
-    export *
-    link framework "CMRuby"
-}

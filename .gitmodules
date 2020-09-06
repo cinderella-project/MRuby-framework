@@ -1,3 +1,3 @@
 [submodule "submodules/mruby"]
-	path = CMRuby/submodules/mruby
+	path = libmrubyby/submodules/mruby
 	url = https://github.com/cinderella-project/mruby.git
