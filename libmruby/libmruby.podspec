@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'libmruby'
-    s.version = '2.1.2+0.1.0'
+    s.version = '2.1.2+0.0.1'
     s.license = { :type => 'MIT', :file => 'libmruby.xcframework/LEGAL' }
     s.homepage = 'https://github.com/cinderella-project/MRuby-framework'
     s.authors = 'rinsuki', 'mruby contributors'
