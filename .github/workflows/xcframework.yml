@@ -40,6 +40,20 @@ jobs:
         path: libmruby.xcframework
     - name: Create zip
       run: zip -r libmruby.xcframework.zip libmruby.xcframework
+    - name: Activate GitHub App token
+      id: generate_github_token
+      uses: tibdex/github-app-token@v1.0.2
+      with:
+        app_id: ${{ secrets.PODUPDATER_APP_ID }}
+        private_key: ${{ secrets.PODUPDATER_PRIVATE_KEY }}
+    - name: Checkout PodsSpecs
+      uses: actions/checkout@v2
+      with:
+        token: ${{ steps.generate_github_token.outputs.token }}
+        repository: cinderella-project/PodsSpecs
+        path: '~/.cocoapods/repos/cinderella'
+    - name: Upload to PodsSpecs
+      run: pod repo push cinderella libmruby.podspec
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
